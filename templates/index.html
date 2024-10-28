@@ -3,9 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="/static/style.css" >
+    <title>Weather app</title>
+
 </head>
 <body>
-    <h1> hellowww</h1>
+    <div class="container">
+        <h1> Weather app</h1>    
+        <form method="POST">
+            
+            <h3> Enter a city to know the weather</h3>
+            <input  autofocus="on" autocomplete="off" type="text" name="search" id="search" placeholder="name a city to search">
+            <input  autocomplete="off" type="submit" id="submit" placeholder="Search" >
+
+        </form>
+
+        <div class="weather_stats">
+            
+            {% if values %}
+
+                <h3>Weather in {{ values['name']}}</h3>
+
+                <p>Temperature - {{ values['main']['temp'] }} *C</p>
+                <p>Pressure -  {{ values['main']['pressure'] }} Pa</p>
+                <p>Humidity  - {{ values['main']['humidity'] }} %</p>
+                <p>Max Temperature - {{ values['main']['temp_max'] }} *C</p>
+                <p> Visibility - {{ values['visibility']}} m</p> 
+
+            {% endif %}
+        </div>
+        
+
+        
+    </div>
+
+    <footer class="footer">
+        &copy;Copyright Prevented 2024 Prasim Basnet
+    </footer>
 </body>
 </html>

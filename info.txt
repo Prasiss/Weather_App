@@ -1,0 +1,71 @@
+2. Weather Dashboard
+Skills Developed: API integration, frontend with JavaScript, basic Flask.
+Description: Create a weather dashboard where users can input a location and get weather data using an API (e.g., OpenWeatherMap).
+Features to Add:
+Search for weather in different cities.
+Display the weather forecast with icons and descriptions.
+Save favorite cities to a profile.
+What You’ll Learn: Fetching and displaying data from an external API, managing asynchronous JavaScript requests, dynamic page updates, and working with sessions or user accounts.
+
+roadmap ://
+Weather Dashboard Project Roadmap:
+
+Week 1: Basic Setup
+Set up Flask and create the project structure.
+Create a homepage with a search bar for entering the city name.
+
+Integrate the OpenWeatherMap API (or any weather API of your choice).
+Fetch weather data based on user input and display it (temperature, humidity, weather condition).
+
+Week 2: Features and Styling
+
+Add icons or images to represent weather conditions (e.g., sunny, rainy).
+Display more detailed weather information (e.g., wind speed, forecast for upcoming days).
+Improve the design using CSS or Bootstrap for responsiveness and better layout.
+
+Week 3: Additional Features
+
+Save favorite cities for the user (using sessions or a basic user system).
+Implement advanced search functionality (by country, city, etc.).
+Add some error handling for invalid city names or API issues.
+
+Week 4: Final Touches and Deployment
+
+Polish the frontend and make the app mobile-friendly.
+Deploy the project on Heroku, Netlify, or any other platform.
+Test the app to ensure everything works as expected.
+
+
+days wise breakdown:
+Day 1-2:
+Set Up the Basics
+Install Flask and set up the project structure.
+Create the homepage with a basic form (search bar for city).
+Set up routing in Flask to handle the form submission.
+
+Day 3-4:
+API Integration
+Integrate the OpenWeatherMap API (or your preferred weather API).
+Fetch weather data based on the user’s city input and display the basic info (temperature, weather description).
+Handle errors (e.g., invalid city names).
+
+Day 5-6:
+Add More Features and Styling
+Display more detailed weather information (humidity, wind speed, etc.).
+Add icons for weather conditions (e.g., sunny, cloudy, rain).
+Start styling the app (using CSS or Bootstrap for a clean layout).
+
+Day 7:
+
+Save Favorite Cities (Optional)
+Implement a simple session-based system where users can save their favorite cities for quicker access.
+
+Day 8-9:
+Refine the Design and User Experience
+Polish the UI, make the app responsive, and improve error messages.
+Test the app thoroughly and ensure all features work as expected.
+
+Day 10:
+Final Testing and Deployment
+Deploy the project on a platform like Heroku.
+Share it with others for feedback.
