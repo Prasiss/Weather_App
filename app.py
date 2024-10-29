@@ -12,8 +12,7 @@ def index():
     if request.method  == "POST":
 
         city= request.form.get("search")
-        weather_value=getting_weather_forecast(city)
-        
+        weather_value=getting_weather_forecast(city) 
         #passing the list of directories to the index page
         return render_template("index.html",values=weather_value)
     else:
