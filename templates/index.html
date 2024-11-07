@@ -32,11 +32,19 @@
                 <p>Max Temperature - {{ values['main']['temp_max'] }} *C</p>
                 <p> Visibility - {{ values['visibility']}} m</p> 
 
-            {% endif %}
+            {% endif %}   
         </div>
         <div class="section">
             <h2>Recent search</h2>
-
+            {% for  data in database_value %}
+                <div class="values">
+                    <h2>city-{{ data['City']}} </h2>
+                    <p>Temperature - {{ data['Temperature'] }} *C</p>
+                    <p>Pressure -  {{ data['pressure'] }} Pa</p>
+                    <p>Humidity  - {{ data['Humidity'] }} %</p>
+                    <p> Visibility - {{ data['Visibility']}} m</p>
+                </div>
+            {% endfor %}
         </div> 
     </div>
 
