@@ -39,6 +39,20 @@ input{
     border: 0;
 
 }
+.section{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    text-align: center;
+    background-color: antiquewhite;
+    width: 100%;
+}
+
+.values{
+    height: 15rem;
+    width: 25%;
+}
+
 
 #submit{
     background-color: blue;
