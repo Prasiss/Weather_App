@@ -1,23 +1,24 @@
 from flask import render_template,request
 from flask import Flask
-import requests
+import requests,sqlite3
 
 app = Flask(__name__)
 app.secret_key = 'your_secret_key'
-
 
 @app.route("/",methods=["GET" ,"POST"])
 def index():
     #takes the user city name and search in the data base.
     if request.method  == "POST":
-
         city= request.form.get("search")
         weather_value=getting_weather_forecast(city) 
+        #trying to save the data into database
+        if weather_value:
+            saving_data(weather_value)
         #passing the list of directories to the index page
         return render_template("index.html",values=weather_value)
     else:
-        return render_template("index.html")
-    
+        database_value=fetch_data()
+        return render_template("index.html",database_value=database_value)
 
 def getting_weather_forecast(city):
 
@@ -33,6 +34,31 @@ def getting_weather_forecast(city):
     else:
         return None
     
+def saving_data(value):
+    #saving the data in th data base from the jason file
+    conn=sqlite3.connect("search.db")
+
+    cursor= conn.cursor()
+
+    cursor.execute('''CREATE TABLE IF NOT EXISTS Weather_details (id INTEGER PRIMARY KEY AUTOINCREMENT,City TEXT NOT NULL,Temperature REAL,
+                   Pressure INTEGER,Humidity INTEGER,Visibility INTEGER)''')
+
+    cursor.execute('''INSERT INTO Weather_details (City,Temperature,Pressure,Humidity,Visibility) VALUES (?,?,?,?,?)
+                ''',(value["name"],value["main"]["temp"],value["main"]["pressure"],value["main"]["humidity"],value["visibility"]))
+    conn.commit()
+
+def fetch_data():
+
+    #fetching the data from database
+    conn=sqlite3.connect("search.db")
+    cursor= conn.cursor()
+
+    cursor.execute('''SELECT * FROM Weather_details''')
+    rows=cursor.fetchall()
+
+    conn.commit()
+    conn.close()
+    return rows
 
 if __name__ == "__main__":
     app.run(debug=True)
