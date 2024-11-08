@@ -17,7 +17,7 @@ def index():
         #passing the list of directories to the index page
         return render_template("index.html",values=weather_value)
     else:
-        database_value=fetch_data()
+        database_value= fetch_data()
         return render_template("index.html",database_value=database_value)
 
 def getting_weather_forecast(city):
@@ -51,12 +51,12 @@ def fetch_data():
 
     #fetching the data from database
     conn=sqlite3.connect("search.db")
+    conn.row_factory =sqlite3.Row
     cursor= conn.cursor()
 
     cursor.execute('''SELECT * FROM Weather_details''')
     rows=cursor.fetchall()
 
-    conn.commit()
     conn.close()
     return rows
 

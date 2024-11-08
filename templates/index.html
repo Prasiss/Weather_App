@@ -39,11 +39,11 @@
             {% for  data in database_value %}
 
                 <div class="values">
-                    <h2>city-{{ data["City"]}} </h2>
-                    <p>Temperature - {{ data['Temperature'] }} *C</p>
-                    <p>Pressure -  {{ data['pressure'] }} Pa</p>
-                    <p>Humidity  - {{ data['Humidity'] }} %</p>
-                    <p>Visibility - {{ data['Visibility']}} m</p>
+                    <h2>City-{{ data[1]}} </h2>
+                    <p>Temperature - {{ data[2] }} *C</p>
+                    <p>Pressure -  {{ data[3] }} Pa</p>
+                    <p>Humidity  - {{ data[4] }} %</p>
+                    <p>Visibility - {{ data[5]}} m</p>
                 </div>
             {% endfor %}
         </div> 
