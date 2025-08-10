@@ -3,54 +3,58 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/static/style.css" >
-    
-    <title>Weather app</title>
-
+    <title>🌤️ Weather App</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="container">
-        <h1> Weather app</h1> 
-        <h3> Enter a city to know the weather</h3>
+        <!-- Header -->
+        <header>
+            <h1>🌤️ Weather App</h1>
+            <p class="subtitle">Enter a city to check the weather</p>
+        </header>
 
-        <form method="POST">
-            
-            <input  autofocus autocomplete="off" type="text" name="search" id="search" placeholder="Name a city to search">
-            <input  autocomplete="off" type="submit" id="submit" placeholder="Search" >
-
+        <!-- Search Form -->
+        <form method="POST" class="search-form">
+            <input type="text" name="search" id="search" placeholder="Name a city..." autocomplete="off" required autofocus>
+            <button type="submit" id="submit">Search</button>
         </form>
 
-        <div class="weather_stats">
-            
-            {% if values %}
+        <!-- Current Weather Result -->
+        {% if values %}
+        <section class="weather-current">
+            <h2>📍 Weather in {{ values['name'] }}</h2>
+            <ul>
+                <li>🌡️ Temperature: {{ values['main']['temp'] }} &deg;C</li>
+                <li>💧 Pressure: {{ values['main']['pressure'] }} Pa</li>
+                <li>📈 Humidity: {{ values['main']['humidity'] }}%</li>
+                <li>🌡️ Max Temp: {{ values['main']['temp_max'] }} &deg;C</li>
+                <li>👁️ Visibility: {{ values['visibility'] }} m</li>
+            </ul>
+        </section>
+        {% endif %}
 
-                <h3>Weather in {{ values['name']}}</h3>
-
-                <p>Temperature - {{ values['main']['temp'] }} *C</p>
-                <p>Pressure -  {{ values['main']['pressure'] }} Pa</p>
-                <p>Humidity  - {{ values['main']['humidity'] }} %</p>
-                <p>Max Temperature - {{ values['main']['temp_max'] }} *C</p>
-                <p> Visibility - {{ values['visibility']}} m</p> 
-
-            {% endif %}   
-        </div>
-        <h2>Recent search</h2>
-        <div class="section">
-            {% for  data in database_value %}
-
-                <div class="values">
-                    <h2>City-{{ data[1]}} </h2>
-                    <p>Temperature - {{ data[2] }} *C</p>
-                    <p>Pressure -  {{ data[3] }} Pa</p>
-                    <p>Humidity  - {{ data[4] }} %</p>
-                    <p>Visibility - {{ data[5]}} m</p>
+        <!-- Recent Searches -->
+        <section class="weather-history">
+            <h2>🕑 Recent Searches</h2>
+            <div class="history-grid">
+                {% for data in database_value %}
+                <div class="card">
+                    <h3>📍 {{ data[1] }}</h3>
+                    <p>🌡️ Temp: {{ data[2] }} &deg;C</p>
+                    <p>💧 Pressure: {{ data[3] }} Pa</p>
+                    <p>📈 Humidity: {{ data[4] }}%</p>
+                    <p>👁️ Visibility: {{ data[5] }} m</p>
                 </div>
-            {% endfor %}
-        </div> 
+                {% endfor %}
+            </div>
+        </section>
     </div>
 
+    <!-- Footer -->
     <footer class="footer">
-        &copy;Copyright Prevented 2024 Prasim Basnet
+        &copy; 2024 Prasim Basnet | Weather App
     </footer>
 </body>
 </html>

@@ -1,10 +1,18 @@
-html,body{
-    height: 100%;
+
+* {
     margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
+
 body{
     display: flex;
     flex-direction: column;
+    font-family: 'Roboto', sans-serif;
+    background: #f2f6ff;
+    color: #333;
+    line-height: 1.6;
+    min-height: 100vh;
 }
 h1{
     text-align: center;
@@ -28,16 +36,34 @@ h3{
 .weather_stats{
     width: 100%;
 }
-form{
+.search-form {
     display: flex;
-    flex-direction: row;
-    align-items: center;
+    justify-content: center;
+    margin-bottom: 2rem;
 }
-input{
-    height: 2rem;
-    width: 50rem;
-    border: 0;
 
+.search-form input {
+    padding: 0.6rem 1rem;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 6px 0 0 6px;
+    outline: none;
+    width: 60%;
+}
+
+.search-form button {
+    padding: 0.6rem 1.2rem;
+    font-size: 1rem;
+    border: none;
+    background-color: #007bff;
+    color: white;
+    border-radius: 0 6px 6px 0;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.search-form button:hover {
+    background-color: #0056b3;
 }
 .section{
     display: flex;
@@ -71,11 +97,11 @@ input{
 
 }
 
-.footer{
-    height: 3rem;
+footer {
+    background-color: #f0f4f8;
     text-align: center;
-    background-color: black;
-    color: white;
-    padding: 10px 0;
+    padding: 1rem;
+    font-size: 0.9rem;
+    color: #555;
+    border-top: 1px solid #ccc;
 }
-
