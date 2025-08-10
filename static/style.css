@@ -63,24 +63,24 @@ header {
 .search-form button:hover {
     background-color: #0056b3;
 }
-.weather-current {
+.current-weather {
     background: #e9f5ff;
     padding: 1.5rem;
     border-radius: 8px;
     margin-bottom: 2rem;
 }
 
-.weather-current h2 {
+.current-weather h2 {
     margin-bottom: 1rem;
     color: #007bff;
 }
 
-.weather-current ul {
+.current-weather ul {
     list-style-type: none;
     padding-left: 0;
 }
 
-.weather-current li {
+.current-weather li {
     padding: 0.3rem 0;
 }
 .weather-history {

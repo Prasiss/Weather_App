@@ -17,13 +17,13 @@
 
         
         <form method="POST" class="search-form">
-            <input type="text" name="search" id="search" placeholder="Name a city..." autocomplete="off" required autofocus>
+            <input type="text" name="search" id="search" placeholder="Name a city to search" autocomplete="off">
             <button type="submit" id="submit">Search</button>
         </form>
 
         
         {% if values %}
-        <section class="weather-current">
+        <section class="current-weather">
             <h2>📍 Weather in {{ values['name'] }}</h2>
             <ul>
                 <li>🌡️ Temperature: {{ values['main']['temp'] }} &deg;C</li>
