@@ -26,7 +26,7 @@
         <section class="current-weather">
             <h2>📍 Weather in {{ values['name'] }}</h2>
             <ul>
-                <li>🌡️ Temperature: {{ values['main']['temp'] }} &deg;C</li>
+                <li>🌡️ Temperature: <p class="value">{{ values['main']['temp'] }} &deg;C</p></li>
                 <li>💧 Pressure: {{ values['main']['pressure'] }} Pa</li>
                 <li>📈 Humidity: {{ values['main']['humidity'] }}%</li>
                 <li>🌡️ Max Temp: {{ values['main']['temp_max'] }} &deg;C</li>
