@@ -9,19 +9,19 @@
 </head>
 <body>
     <div class="container">
-        <!-- Header -->
+        
         <header>
             <h1>🌤️ Weather App</h1>
             <p class="subtitle">Enter a city to check the weather</p>
         </header>
 
-        <!-- Search Form -->
+        
         <form method="POST" class="search-form">
             <input type="text" name="search" id="search" placeholder="Name a city..." autocomplete="off" required autofocus>
             <button type="submit" id="submit">Search</button>
         </form>
 
-        <!-- Current Weather Result -->
+        
         {% if values %}
         <section class="weather-current">
             <h2>📍 Weather in {{ values['name'] }}</h2>
@@ -35,9 +35,9 @@
         </section>
         {% endif %}
 
-        <!-- Recent Searches -->
+       
         <section class="weather-history">
-            <h2>🕑 Recent Searches</h2>
+            <h2 style="text-align: center; padding: 20px">🕑 Recent Searches</h2>
             <div class="history-grid">
                 {% for data in database_value %}
                 <div class="card">
@@ -52,7 +52,7 @@
         </section>
     </div>
 
-    <!-- Footer -->
+    
     <footer class="footer">
         &copy; 2024 Prasim Basnet | Weather App
     </footer>
