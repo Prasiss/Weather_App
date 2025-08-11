@@ -1,60 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>🌤️ Weather App</title>
-    <link rel="stylesheet" href="/static/style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
-</head>
-<body>
+    <link rel="stylesheet" href="/static/style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
     <div class="container">
-        
-        <header>
-            <h1>🌤️ Weather App</h1>
-            <p class="subtitle">Enter a city to check the weather</p>
-        </header>
+      <header>
+        <h1>🌤️ Weather App</h1>
+        <p class="subtitle">Enter a city to check the weather</p>
+      </header>
 
-        
-        <form method="POST" class="search-form">
-            <input type="text" name="search" id="search" placeholder="Name a city to search" autocomplete="off">
-            <button type="submit" id="submit">Search</button>
-        </form>
+      <form method="POST" class="search-form">
+        <input
+          type="text"
+          name="search"
+          id="search"
+          placeholder="Name a city to search"
+          autocomplete="off"
+        />
+        <button type="submit" id="submit">Search</button>
+      </form>
 
-        
-        {% if values %}
-        <section class="current-weather">
-            <h2>📍 Weather in {{ values['name'] }}</h2>
-            <ul>
-                <li>🌡️ Temperature: <p class="value">{{ values['main']['temp'] }} &deg;C</p></li>
-                <li>💧 Pressure: {{ values['main']['pressure'] }} Pa</li>
-                <li>📈 Humidity: {{ values['main']['humidity'] }}%</li>
-                <li>🌡️ Max Temp: {{ values['main']['temp_max'] }} &deg;C</li>
-                <li>👁️ Visibility: {{ values['visibility'] }} m</li>
-            </ul>
-        </section>
-        {% endif %}
+      {% if values %}
+      <section class="current-weather">
+        <h2>📍 Weather in {{ values['name'] }}</h2>
+        <ul>
+          <li>🌡️ Temperature:{{ values['main']['temp'] }}&deg;C</li>
+          <li>💧 Pressure: {{ values['main']['pressure'] }} Pa</li>
+          <li>📈 Humidity: {{ values['main']['humidity'] }}%</li>
+          <li>🌡️ Max Temp: {{ values['main']['temp_max'] }} &deg;C</li>
+          <li>👁️ Visibility: {{ values['visibility'] }} m</li>
+        </ul>
+      </section>
 
-       
-        <section class="weather-history">
-            <h2 style="text-align: center; padding: 20px">🕑 Recent Searches</h2>
-            <div class="history-grid">
-                {% for data in database_value %}
-                <div class="card">
-                    <h3>📍 {{ data[1] }}</h3>
-                    <p>🌡️ Temp: {{ data[2] }} &deg;C</p>
-                    <p>💧 Pressure: {{ data[3] }} Pa</p>
-                    <p>📈 Humidity: {{ data[4] }}%</p>
-                    <p>👁️ Visibility: {{ data[5] }} m</p>
-                </div>
-                {% endfor %}
-            </div>
-        </section>
+      {% else %}
+
+      <section class="weather-history">
+        <h2 style="text-align: center; padding: 20px">🕑 Recent Searches</h2>
+        <div class="history-grid">
+          {% for data in database_value %}
+          <div class="card">
+            <h3>📍 {{ data[1] }}</h3>
+            <p>🌡️ Temp: {{ data[2] }} &deg;C</p>
+            <p>💧 Pressure: {{ data[3] }} Pa</p>
+            <p>📈 Humidity: {{ data[4] }}%</p>
+            <p>👁️ Visibility: {{ data[5] }} m</p>
+          </div>
+          {% endfor %}
+        </div>
+      </section>
+
+      {% endif %}
     </div>
 
-    
-    <footer class="footer">
-        &copy; 2024 Prasim Basnet | Weather App
-    </footer>
-</body>
+    <footer class="footer">&copy; 2024 Prasim Basnet | Weather App</footer>
+  </body>
 </html>

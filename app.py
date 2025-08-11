@@ -14,8 +14,9 @@ def index():
         #trying to save the data into database
         if weather_value:
             saving_data(weather_value)
+        database_value=fetch_data()
         #passing the list of directories to the index page
-        return render_template("index.html",values=weather_value)
+        return render_template("index.html",values=weather_value,database_value=database_value)
     else:
         database_value= fetch_data()
         return render_template("index.html",database_value=database_value)
