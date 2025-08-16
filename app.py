@@ -17,12 +17,16 @@ def index():
             #generate a background image based on temperature
             background_image = generate_background_image(temp)
             saving_data(weather_value)
+        else:
+            background_image = None
         database_value=fetch_data()
         #passing the list of directories to the index page
         return render_template("index.html",values=weather_value,database_value=database_value,background_image=background_image)
     else:
         database_value= fetch_data()
-        return render_template("index.html",database_value=database_value,)
+        background_image = None
+        return render_template("index.html",database_value=database_value,background_image=background_image)
+    
 
 def getting_weather_forecast(city):
 
@@ -67,13 +71,13 @@ def fetch_data():
 def generate_background_image(temperature):
     # This function can be used to generate a background image if needed
     if (temperature < 0):
-        return "cold_background.jpg"
+        return "cold"
     elif (temperature < 20):
-        return "cool_background.jpg"
+        return "cool"
     elif (temperature < 30):
-        return "warm_background.jpg"
+        return "warm"
     else:
-        return "hot_background.jpg"
+        return "hot"
 
 if __name__ == "__main__":
     app.run(debug=True)

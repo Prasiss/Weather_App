@@ -13,10 +13,29 @@ body{
     color: #333;
     line-height: 1.6;
     min-height: 100vh;
-    background: url("/Images/{{ background_image }}") no-repeat center center fixed;
+}
+.current-weather.cold {
+    background-image: url("../images/cold_background.webp");
     background-size: cover;
-    color: white;
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+    background-position: center;
+}
+
+.current-weather.cool {
+    background-image: url("../images/cool_background.jpg");
+    background-size: cover;
+    background-position: center;
+}
+
+.current-weather.warm {
+    background-image: url("../images/warm_background.avif");
+    background-size: cover;
+    background-position: center;
+}
+
+.current-weather.hot {
+    background-image: url("../images/hot_background.jpg");
+    background-size: cover;
+    background-position: center;
 }
 .container {
     flex: 1;
@@ -70,6 +89,7 @@ header {
 .current-weather {
     background: #ffffff;
     padding: 1.5rem;
+    color: white;
     border-radius: 8px;
     margin-bottom: 2rem;
     border: 1px solid black;
@@ -78,7 +98,7 @@ header {
 
 .current-weather h2 {
     margin-bottom: 1rem;
-    color: #007bff;
+    color: #7cb1ea;
 }
 
 .current-weather ul {

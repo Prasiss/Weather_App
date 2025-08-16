@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>🌤️ Weather App</title>
-    <link rel="stylesheet" href="/static/style.css" />
+    <link rel="stylesheet" href="../static/css/style.css" />
     <link
       href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
       rel="stylesheet"
@@ -29,7 +29,7 @@
       </form>
 
       {% if values %}
-      <section class="current-weather">
+      <section class="current-weather {{ background_image }}">
         <h2>📍 Weather in {{ values['name'] }}</h2>
         <ul>
           <li>🌡️ Temperature:{{ values['main']['temp'] }}&deg;C</li>
